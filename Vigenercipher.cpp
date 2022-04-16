@@ -15,6 +15,16 @@ void messageAndKey(){
     for(int i = 0; i < msg.length(); i++){
         msg[i] = toupper(msg[i]);
     }
+    
+     string key;
+    cout << "Enter key: ";
+    getline(cin, key);
+    cin.ignore();
+
+    //key to uppercase
+    for(int i = 0; i < key.length(); i++){
+        key[i] = toupper(key[i]);
+    }
 
     //mapping key to message
     string keyMap = "";
