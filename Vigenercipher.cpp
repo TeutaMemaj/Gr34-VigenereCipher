@@ -1,5 +1,35 @@
 
 
+    //mapping key to message
+    string keyMap = "";
+    for (int i = 0,j = 0; i <msg.length();i++){
+        if(msg[i] ==32){
+            keyMap += 32;
+        } else {
+            if(j<key.length()){
+                keyMap += key[j];
+                j++;
+            } else {
+                j = 0;
+                keyMap += key[j];
+                j++;
+            }
+        } //if-else
+    } //for
+
+  //  cout << msg << "\n" << keyMap;
+    message = msg;
+    mappedKey = keyMap;
+}
+
+int tableArr[26][26];
+void createVigenereTable(){
+    for (int i = 0; i < 26; i++){
+        for (int j = 0; j < 26; j++){
+            int temp;
+            if((i+65)+j > 90){
+                temp = ((i+65)+j) - 26;
+
                 //adding ASCII of alphabet letter in table index position
                 tableArr[i][j] = temp;
             } else {
