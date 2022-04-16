@@ -1,4 +1,20 @@
+#include <iostream>
 
+using namespace std;
+
+string message;
+string mappedKey;
+
+void messageAndKey(){
+    string msg;
+    cout << "Enter message: ";
+    getline(cin, msg);
+    cin.ignore();
+
+    //message to uppercase
+    for(int i = 0; i < msg.length(); i++){
+        msg[i] = toupper(msg[i]);
+    }
 
     //mapping key to message
     string keyMap = "";
