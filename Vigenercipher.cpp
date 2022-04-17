@@ -7,26 +7,23 @@ string mappedKey;
 
 void messageAndKey(){
     string msg;
-    cout << "Enter message: ";
+    cout << "Shkruaj nje mesazh: ";
     getline(cin, msg);
     cin.ignore();
 
-    //message to uppercase
     for(int i = 0; i < msg.length(); i++){
         msg[i] = toupper(msg[i]);
     }
     
      string key;
-    cout << "Enter key: ";
+    cout << "Vendos celesin: ";
     getline(cin, key);
     cin.ignore();
 
-    //key to uppercase
     for(int i = 0; i < key.length(); i++){
         key[i] = toupper(key[i]);
     }
 
-    //mapping key to message
     string keyMap = "";
     for (int i = 0,j = 0; i <msg.length();i++){
         if(msg[i] ==32){
@@ -40,10 +37,9 @@ void messageAndKey(){
                 keyMap += key[j];
                 j++;
             }
-        } //if-else
-    } //for
+        } 
+    } 
 
-  //  cout << msg << "\n" << keyMap;
     message = msg;
     mappedKey = keyMap;
 }
@@ -56,24 +52,17 @@ void createVigenereTable(){
             if((i+65)+j > 90){
                 temp = ((i+65)+j) - 26;
 
-                //adding ASCII of alphabet letter in table index position
+            
                 tableArr[i][j] = temp;
             } else {
                 temp = (i+65)+j;
 
-                //adding ASCII of alphabet letter in table index position
                 tableArr[i][j] = temp;
             }
-        } // for j loop
-    } // for i loop
+        } 
+    } 
 
-    //testing the table
-//    for(int i = 0; i <26; i++){
-//        for(int j = 0; j < 26; j++){
-//            cout << (char)tableArr[i][j] << " ";
-//        }
-//        cout << endl;
-//    }
+    
 }
 
 void cipherEncryption(string message, string mappedKey){
@@ -89,15 +78,14 @@ void cipherEncryption(string message, string mappedKey){
         }
     }
 
-    cout << "Encrypted Text: " << encryptedText;
+    cout << "Teksti i Enkriptuar: " << encryptedText;
 }
 
 int itrCount(int key, int msg){
     int counter = 0;
     string result = "";
 
-    //starting from ASCII of letter of Key and ending at letter of message
-    // to get full 26 letters of alphabet
+    
     for(int i = 0; i < 26; i++){
         if(key+i > 90){
             result += (char)(key+(i-26));
@@ -128,15 +116,15 @@ void cipherDecryption(string message, string mappedKey){
         }
     }
 
-    cout << "Decrypted Text: " << decryptedText;
+    cout << "Teksti i Dekriptuar: " << decryptedText;
 }
 
 
 int main()
 {
-    cout << "Message and key can only be alphabetic" << endl;
+    cout << "Mesazhi dhe celesi mund te jene vetem alfabetik" << endl;
     int choice;
-    cout << "1. Encryption\n2. Decryption\nChoose(1,2): ";
+    cout << "1. Encryption\n2. Decryption\nZgjidh(1,2): ";
     cin >> choice;
     cin.ignore();
 
